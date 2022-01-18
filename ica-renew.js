@@ -29,7 +29,7 @@ var headers = {curl -i -u 7001011234:567 https://handla.api.ica.se/api/login/
 };
 
 var options = {
-    url: 'https://handla.api.ica.se/api/user/minbonustransaction',
+    url: 'https://handla.api.ica.se/api/user/minbonustransaction',// Alla köp som gjorts som ger ica bonus.
     headers: headers
 };
 
@@ -37,7 +37,7 @@ var options = {
     if (!error && response.statusCode == 200) {
         console.log(body);
         let data = JSON.stringify(body);
-        fs.writeFileSync('./bonus.json',data);
+        fs.writeFileSync('./bonus.json',data);  //Sparas till en jsonfil för mer bearbetning
         
 
     }
