@@ -8,25 +8,24 @@
 var request = require('request');
 const fs = require('fs');
 var options = {
-    url: 'https://handla.api.ica.se/api/login/',
+    url: 'https://handla.api.ica.se/api/login/', //Logga in mot handla.api.ica.se
     auth: {
-        'user': 'xxxxxxxxxx',
-        'pass': 'xxxxxx'
+        'user': 'xxxxxxxxxx', // personnummer (10) siffror tex 700102030405
+        'pass': 'xxxxxx'     //lösenord som används på ica.se för att logga in på sitt kundkonto
     }
 };
 
 async function callback(error, response, body) {
     if (!error && response.statusCode == 200) {
-        console.log(body);
-        let data = JSON.stringify(body);
-        fs.writeFileSync('./kund.json',data);
+        console.log(body); //Visa kundbild
+      
         
     }
 }
-var request = require('request'); // Au ticket har en livslängd på 2-4 timmar
+var request = require('request'); // Auticket erhålls med postman alternativt curl ( curl -i -u xxxxxxxxxx:xxxxxx https://handla.api.ica.se/api/login/ med login detaljer
 
-var headers = {
-    'AuthenticationTicket': '6503C4ED5369C75EDF30D59680091F7D85E0A55E368C19DAD39DEF8C5F9510A3D1FCEB33C4BFE2B08B42A57432AC3F3F880E4DBB976336E27D993438189662DE645D0F67C66621F9DF1A232DDFC6C3021DE87779C6AD499B15F8B1193E4D39602BAA2DC22A1CABB58E5504C2636EBFADEC7761B4EA9EB26021CE7B3D14FB6654635CA9D299E0A82AE163BE1AE103C3B6B059E4221D7DAB2A3094DEAEB63BD884D470811B8A97D86644F08D7ABC49CE45975D55976B72E263BAB0837B04C73C44985A44E58276197835F5581B5ABA632F870E0549059AD353A32FC38DEE4AA2694B5D372FCB4FC56CB462367927F4BA16943C177D21334548CCE740E0D4703F7BD4303BAC5764BADEA8CD8342C5B648CF4BDDD9D98181761A6288131EFB108186740DC3B68C8437D2142125A563377AA4BDAD56317CCC5B576C3F4CD721D4C83EE46A410D444CC022E0F01092D9B85C8E378C446D752ABC7D581ED27020898E12BBBA426E9511FC3857CBF54540FC2F2532A5ACC3934D288FC1C16FBC7CE5218BA768FDE28F228286744A5FF1ED666C05B983C80AB5A3BD417929C7CB795C5DC85C5574D419D4853027B89B36EF5016B489416FA92C1AA56654CB7083157DD56EA1C06385BBCBA2C8D60CDE98A55EF82EBB6B4D47506178F81DAAAC68BAD74407E9CAF47A3AF3B2A6D2CAB9BC3B151C940A5D7960BF128AED885856BB2DC883E2DC7296A8'
+var headers = {curl -i -u 7001011234:567 https://handla.api.ica.se/api/login/
+    'AuthenticationTicket': 'klista in din ticket här'
 };
 
 var options = {
